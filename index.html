@@ -12,40 +12,59 @@
 <body>
 	<main>
 		<header class="cabecalho-index">
-			<img class="cabecalho-index__foto" src="img/eu.jpg">
+			<img class="cabecalho-index__foto" alt="Foto do João da Silva" src="img/eu.jpg">
 			<h2>João da Silva</h2>
-			<h4>Desenvolvedor web</h4>			
+			<h4>Desenvolvedor web</h4>	
+
+		    <ul>
+		        <li class="palavra-home eficiencia">Eficiência</li>
+		        <li class="palavra-home boas-praticas">Boas práticas</li>
+		        <li class="palavra-home codigo-limpo">Código limpo</li>
+		        <li class="palavra-home css3">CSS3</li>
+		        <li class="palavra-home html5">HTML5</li>
+		        <li class="palavra-home javascript">JavaScript</li>
+		        <li class="palavra-home acessibilidade">Acessibilidade</li>
+		        <li class="palavra-home responsivo">Responsivo</li>
+		        <li class="palavra-home otimizacoes">Otimizações</li>
+		        <li class="palavra-home agilidade">Agilidade</li>
+		        <li class="palavra-home design">Design</li>
+		    </ul>					
 		</header>
 		<div class="conteudo-pagina">
 			
-			<div class="apresentacao-index">
+			<section class="apresentacao-index">
 				<p><span class="apresentaca-index__inicio">Olá,</span> meu nome é <strong class="apresentacao-index__nome">João da Silva</strong></p>
 				<p class="apresentacao-index__identacao">e eu construo <em class="apresentacao-index__italico">sites maravilhosos.</em></p>
 				<a class="conteudo-pagina__conheca_mais" href="#">Conheça mais um pouco sobre mim</a>
-			</div>
+			</section>
 
-			<div class="trabalhos-index">
+			<section class="trabalhos-index">
 				<h2>Trabalhos</h2>
 				<ul>
-					<li><a href=""><img src="img/bmw.png"></a></li>
-					<li><a href=""><img src="img/ibm.png"></a></li>
-					<li><a href=""><img src="img/uol.png"></a></li>
+					<li><a href=""><img alt="Site da BMW" src="img/bmw.png"></a></li>
+					<li><a href=""><img alt="Site da IBM" src="img/ibm.png"></a></li>
+					<li><a href=""><img alt="Site da UOL" src="img/uol.png"></a></li>
 				</ul>
 				<a class="conteudo-pagina__conheca_mais" href="">Ver mais</a>
-			</div>
+			</section>
 
-			<div class="blog-index">
+			<section class="blog-index">
 				<h2>Blog</h2>
 				<small>Últimos posts</small>
 
 				<ul>
-					<li><a href="">O essencial de design responsivo</a></li>
+					<li class="mais-recente">
+						<a href="">O essencial de design responsivo</a>
+						<p class="blog-index__post">
+							Design responsivo tem ganho cada vez mais atenção como técnica de desenvolvimento de páginas web para dispositivos móveis. Mas como começar?
+						</p>
+					</li>
 					<li><a href="">Porque fazer páginas acessíveis?</a></li>
 					<li><a href="">JavaScript não obstrusivo</a></li>
 				</ul>
 
 				<a class="conteudo-pagina__conheca_mais" href="">Ver mais</a>
-			</div>
+			</section>
 
 		</div>
 	</main>

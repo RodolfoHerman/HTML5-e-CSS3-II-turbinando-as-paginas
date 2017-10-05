@@ -13,11 +13,74 @@ main {
 	float: none;
 }
 
+.palavra-home {
+	font-family: "Shadows Into Light", cursive;
+	color: #D5447E;
+	font-weight: bold; 
+	position: absolute;
+}
+
+.eficiencia {
+    top: 20%;
+    left: 75%;
+}
+
+.boas-praticas {
+    top: 70%;
+    left: 20%;
+}
+
+.codigo-limpo {
+    top: 45%;
+    left: 10%;
+}
+
+.css3 {
+    top: 50%;
+    left: 30%;
+}
+
+.html5 {
+    top: 40%;
+    left: 80%;
+}
+
+.javascript {
+    top: 10%;
+    left: 60%;
+}
+
+.acessibilidade {
+    top: 30%;
+    left: 25%;
+}
+
+.responsivo {
+    top: 15%;
+    left: 15%;
+}
+
+.otimizacoes {
+    top: 60%;
+    left: 70%;
+}
+
+.agilidade {
+    top: 10%;
+    left: 30%;
+}
+
+.design {
+    top: 35%;
+    left: 65%;
+}
+
 .cabecalho-index {
 	text-align: center;
 	background-color: #851944;
 	padding: 2em;
 	border-bottom: 0.5em solid #000;
+	position: relative;
 }
 
 .cabecalho-index__foto {
@@ -87,6 +150,9 @@ h2 {
 	padding: 3em;
 }
 
+/**
+* Overflow faz a barra de rolagem quando o elemento nao couber no elemento pai
+*/
 .trabalhos-index ul {
 	margin-top: 3em;
 	overflow: hidden;
@@ -108,6 +174,7 @@ h2 {
 	padding: 3em;
 	color: #FFF;
 	border-bottom: .5em solid #000;
+	position: relative;
 }
 
 .blog-index small {
@@ -123,6 +190,29 @@ h2 {
 	color: #FCF;
 	padding: .5em;
 	display: block;
+}
+
+.blog-index__post {
+	background-color: #FFF;
+	color: #000;
+	position: absolute;
+	top: 6em;
+	right: 5em;
+	left: 30%;
+	padding: 1.5em;
+	height: 8em;
+}
+
+.mais-recente {
+	background-color: #F2FFFC;
+}
+
+.blog-index  .mais-recente a {
+	color: #F26;
+}
+
+.blog-index li {
+	width: 30%;
 }
 
 footer {
