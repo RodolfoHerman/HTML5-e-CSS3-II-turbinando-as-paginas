@@ -1,0 +1,176 @@
+/**
+line-height -> tamanho entre as linhas 
+Floats seguidos formam uma linha
+usa clear para evitar floats fazendo com que siga o fluxo do html
+*/
+
+html {
+	font-size: 120%;
+}
+
+
+body {
+	background-color: #F2FFFC;
+	font-family: "Crimson Text", serif;
+	line-height: 1.5;
+}
+
+.titulo-principal {
+	font-size: 300%;
+	text-align: center;
+	background-color: #851944;
+	color: #FFF;
+	padding: 2rem;
+	border-bottom: 0.5rem solid black;
+	text-transform: uppercase;
+}
+
+/**
+box-sizing: border-box -> calcula o tamanho do width a partir da borda e n do conteudo 
+*/
+blockquote {
+	background-color: #D9E5E3;
+	border: .5em solid #C2CCCA;
+	margin: 1em 2em;
+	width: 30ch;
+	box-sizing: border-box;
+	padding: 1em;
+}
+
+blockquote cite {
+	display: block;
+	float: right;
+	font-style: italic;
+}
+
+.conteudo-pagina {
+	width: 90ch;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1.5rem 0rem;
+}
+
+main {
+	width: 85%;
+	float: left;
+	padding-bottom: 4.5rem;
+}
+
+.citacao-bio-fiat {
+	float: right;
+}
+
+.citacao-bio-petrobras {
+	float: left;
+}
+
+.navegacao-site {
+    background-color: #3C1D3D;
+    color: #F2FFFC;
+    float: right;
+    width: 15%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    position: relative;
+    top: 310px;
+}
+
+.navegacao-site a {
+    color: inherit;
+    font-family: "Open Sans Condensed", sans-serif;
+    text-transform: lowercase;
+}
+
+.icones-sociais li {
+	display: inline-block;
+}
+
+.icones-sociais a {
+	width: 40px;
+	height: 40px;
+	text-indent: -9999px;
+	display: block;
+}
+
+.github {
+	background-image: url("../img/github.png");
+}
+
+.linkedin {
+	background-image: url("../img/linkedin.png");
+}
+
+.twitter {
+	background-image: url("../img/twitter.png");
+}
+
+#rodape-pagina {
+	background-color: #000;
+	color: #F2FFFC;
+	padding: 1rem;
+	box-sizing: border-box;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+.sub-titulo {
+	clear: both;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h1, h2 {
+	font-family: "Open Sans Condensed", sans-serif;
+}
+
+p {
+	margin: 1em 0em;
+	text-align: justify;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+.minha-foto {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.navegacao-site, .minha-foto {
+	border-bottom: 0.5rem solid black;
+	border-left: 0.5rem solid black;
+	box-sizing: border-box;
+}
+
+.clearfix {
+	clear: both;
+}
+
+/**
+Position relative: mudar a posição do elemento de acordo com a posição original dele;
+Position absolute: posicionar elementos na página independente do resto do contúdo (relativo à tela);
+Position fixed: permite deixar qualquer elemento no lugar que quisermos na janela;
+*/
+
+/**
+Vimos, então, três novas medidas:
+
+rem: tem como padrão a fonte do navegador;
+em: tem como padrão a fonte do elemento pai;
+ch: tem como base a largura do caractere zero da fonte usada;
+Vimos que a porcentagem tem como base ou a largura do elemento pai ou o font-size do elemento anterior.
+
+Utilizando essas medidas conseguimos um CSS mais flexível, principalmente se quisermos manter um padrão de tamanho de fonte. 
+Utilizando o font-size do HTML, é apenas ali que será necessário fazer alterações.
+*/
