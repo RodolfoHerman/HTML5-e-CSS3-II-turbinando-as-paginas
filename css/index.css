@@ -86,6 +86,10 @@ main {
 .cabecalho-index__foto {
 	height: 200px;
 	margin-bottom: .5em;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	border-radius: 10% 50% / 50% 10%;
 }
 
 h2 {
