@@ -1,0 +1,64 @@
+.container {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	padding: 1em;
+	/*aplicando o gradiente*/
+	background-image: linear-gradient(to right, transparent, black, transparent);
+    /*1px representa a largura do gradiente*/
+    background-size: 100% 1px;
+    /*Para que o gradiente não fique repetindo no elemento inteiro*/
+    background-repeat: no-repeat;
+    /*para fazer com que ele apareça na parte inferior do post*/
+    background-position: bottom center;
+}
+
+.gradiente-linear {
+	box-shadow: 0 0 0 4px black;
+	width: 15em;
+	height: 15em;
+	margin: 5% auto;
+	/**background-image: linear-gradient(to bottom right, white, red, black);*/
+	/**background-image: linear-gradient(to right, white, black, white, black, white);*/
+	/*background-image: linear-gradient(to bottom, black, blue 80%, brown);*/
+	background-color: #000;
+	background-image: linear-gradient(to right, black, #C00, black);
+	background-repeat: no-repeat;
+	background-size: 80% 5px;
+	background-position: 50% 50%;
+}
+
+.gradiente-radial {
+	box-shadow: 0 0 0 4px black;
+	width: 15em;
+	height: 15em;
+	margin: 5% auto;	
+	/*background-image: radial-gradient(yellow, red);*/
+	/*background-image: radial-gradient(circle at bottom left, yellow, red);*/
+	background-image: radial-gradient(circle at bottom right,
+    yellow,
+    yellow 20%,
+    black 20%,
+    black 30%,
+    yellow 30%,
+    yellow);
+}
+
+/**
+background-repeat: no-repeat --> utilizado evitar a repetição do background-image quando ele não ocupa 100% do elemento.
+Por padrão o background-image ocupa 100% do elemento, mas podemos controlar essa ocupação utilizando o background-size
+*/
+
+/**
+A propriedade background-position. 
+Ela permite dizer onde queremos que a imagem ou gradiente comece a ser desenhado no elemento. 
+Por padrão, o fundo começa a ser desenhado no canto superior esquerdo do elemento, 
+mas podemos passar as distâncias dos cantos superior e esquerdo que queremos usar como ponto de partida.
+*/
+
+/*
+radial-gradient
+É possível mudar a posição central do gradiente com relação ao elemento e 
+restringir o gradiente à forma redonda ou permitir um gradiente oval.
+*/

@@ -1,0 +1,64 @@
+/*Efeito de fundo listrado no fundo das seções Trabalhos e Blog da página inicial. 
+As linhas da secao_1 podem ser da cor rgba(0, 0, 0, 0.1) e as linhas da secao_2, da cor rgba(255, 255, 255, 0.1).
+
+Além disso, as linhas de ambas as seções devem ser na diagonal, porém a secao_1 deve ter linhas na diagonal contrária à secao_2. 
+Por fim, as linhas devem ficar fixas quando a página é rolada.*/
+
+
+.container {
+	width: 80%;
+	height: 100em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	padding: 1em;
+	border: 1px solid black;
+	background-color: #000;
+}
+
+.secao_1, .secao_2 {
+	width: 50em;
+	height: 20em;
+	border: 1px solid black;
+	margin: 150px auto;
+	text-align: center;
+	line-height: 17em;
+	font-size: 1.5em;
+}
+
+
+/*Queremos criar uma linha fina com a cor rgba(0, 0, 0, 0.1). 
+Para isso, até 14 pixels vamos usar a cor transparente, trocando subitamente para a 
+cor semitransparente, usando-a por 1 pixel e voltando subitamente para transparente
+
+para que essa linha se repita pelo elemento todo, definimos o tamanho da imagem de fundo. 
+Vamos usar 20 pixels. E, para que as linhas não se movimentem com a rolagem, adicionamos também o background-attachment: fixed.*/
+
+.secao_1 {
+	background-color: #F0F8FF;
+	background-image: linear-gradient(to bottom right,
+                        transparent,
+                        transparent 14px,
+                        rgba(0, 0, 0, 0.1) 14px,
+                        rgba(0, 0, 0, 0.1) 15px,
+                        transparent 15px,
+                        transparent);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+}
+
+
+/*Para essa seção, o código é bem parecido. Mudam apenas o ângulo do gradiente e as cores*/
+
+.secao_2 {
+	background-color: #5F9EA0;
+	background-image: linear-gradient(45deg,
+                        transparent,
+                        transparent 14px,
+                        rgba(255, 255, 255, 0.1) 14px,
+                        rgba(255, 255, 255, 0.1) 15px,
+                        transparent 15px,
+                        transparent);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+}

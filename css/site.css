@@ -42,6 +42,26 @@ h1 {
     border-bottom: .5rem solid #000;
 }
 
+/**
+O gradiente não precisa ser apenas de duas cores, podemos acrescentar mais uma cor central, o cinza.
+Podemos modificar o lugar em que ocorre a transição de cores. Queremos aqui que a mudança de vermelho para cinza ocorra a uns 80% da altura da imagem, de cima para baixo
+*/
+.titulo-principal {
+    background-image: linear-gradient(to bottom, #F00, #888 80%, #000);
+    /**
+    Por padrão, o gradiente ocupa 100% do elemento. Mas, com o CSS3, podemos agora definir quanto do elemento o gradiente deve pegar
+    Aqui ele terá 100% da largura do background e 200 pixeis de altura
+    background-size : 100% 200px;
+
+    O gradiente se repete automaticamente. Podemos desligar esse comportamento utilizando a propriedade background-repeat
+    background-repeat: no-repeat;
+
+    background-attachment, com o valor "fixed" dá aquele efeito de paralaxe na imagem ou na textura do background
+    background-attachment: fixed;
+
+    */
+}
+
 .subtitulo-texto {
     font-size: 1.5em;
     clear: both;
@@ -76,7 +96,7 @@ main p {
 
 .rodape-pagina {
     /** opacity é aplicado ao elemento pai todo. Para contornar esse problema utiliza-se apenas ao fundo com a propriedade rgba */
-    background-color: rgba(0, 0, 0, .3);
+    /*background-color: rgba(0, 0, 0, .3);*/
     color: #F2FFFC;
     padding: 1em;
     clear: both;
@@ -85,6 +105,22 @@ main p {
     left: 0;
     width: 100%;
     box-sizing: border-box;
+    
+    /*O gradiente é radial, oval (elíptico) e centrado no canto inferior esquerdo do rodapé.
+    A cor rgba(60, 29, 61, 0.8) vai do centro até aproximadamente 65% do tamanho total do gradiente, trocando em seguida imediatamente para preto.
+    Essa cor preta fica por aproximadamente 5% do gradiente e depois desaparece, ou seja, é imediatamente substituída por uma cor transparente.
+    Porém a elipse ocupará a largura inteira da página. 
+    Para restringir o gradiente para apenas 25% de 100% da largura da página, definimos o tamanho e a repetição do fundo.*/
+    background-image: radial-gradient(ellipse at left bottom,
+    rgba(60, 29, 61, 0.8),
+    rgba(60, 29, 61, 0.8) 65%,
+    black 65%,
+    black 70%,
+    transparent 70%,
+    transparent);
+    width:100%;
+    background-size: 25% 100%;
+    background-repeat: no-repeat;
 }
 
 .container {
