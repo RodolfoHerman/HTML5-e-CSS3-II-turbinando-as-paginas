@@ -15,4 +15,5 @@ Para deixar as caixinhas lado a lado, formando linhas, e conseguir controlar o p
 
 .portfolio img {
     width: 100%;
+    box-shadow: 0 0 1em #000;
 }
