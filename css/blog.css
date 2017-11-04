@@ -7,8 +7,28 @@
     background-color: #E6E7E8;
 }
 
-.post-blog {
+/*.post-blog {
     padding-bottom: 1.5em;
+    /*border-bottom: 1px solid #ccc;*
+    background-image: linear-gradient(to right, transparent, black, transparent);
+    /*1px representa a largura do gradiente*
+    background-size: 100% 1px;
+    /*Para que o gradiente não fique repetindo no elemento inteiro*
+    background-repeat: no-repeat;
+    /*para fazer com que ele apareça na parte inferior do post*
+    background-position: bottom center;
+    margin-bottom: 1em;
+}*/
+
+
+
+/*
+Para remover a borda sobrando no final da página.
+Realizamos o seletor de irmão depois e aplicamos as alterações para top em vez de bot
+*/
+.post-blog + .post-blog {
+    padding-top: 1.5em;
+    margin-top: 1em;
     /*border-bottom: 1px solid #ccc;*/
     background-image: linear-gradient(to right, transparent, black, transparent);
     /*1px representa a largura do gradiente*/
@@ -16,6 +36,5 @@
     /*Para que o gradiente não fique repetindo no elemento inteiro*/
     background-repeat: no-repeat;
     /*para fazer com que ele apareça na parte inferior do post*/
-    background-position: bottom center;
-    margin-bottom: 1em;
+    background-position: top center;
 }

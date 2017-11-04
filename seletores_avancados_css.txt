@@ -1,0 +1,121 @@
+OBS: A leitura da seleção acontece da esquera para direita e é efeito cascata. Por exemplono arquivo 'blog.css' a utilização do '.post-blog + .post-blog'
+significa --> seleciona o irmão logo após o '.pos-blog' atual e aplica a margem top. Se temos 4 div's com a classe '.post-blog':
+
+pegamos a primeira div, selecionamos a irmã logo após ela aplicamos a borda top. Pulamos para a segunda div, selecionamos a irmão logo após ela e aplicamos borda top.
+E assim por diante
+
+-------------------------------------------------------------
+
+Exemplo
+
+<img>
+<p></p>
+<p></p>
+<p></p>
+
+No CSS o '~' significa selecionar o elemento ou elementos "depois" de um determinado elemento
+
+//Seleciona todos os p's depois do elemento img
+img ~ p {
+
+}
+
+No CSS o '+' significa selecionar o unico elemento imediatamente "depois" de um determinado elemento
+
+//Seleciona o primeiro p depois do elemento img
+img + p {
+
+}
+
+--------------------------------------------------------------
+
+
+Exemplo
+
+<div>
+	<p></p>
+	<blockquote>
+		<p></p>
+	</blockquote>
+	<p></p>
+</div>
+
+No CSS se usarmos :
+
+div p {
+	
+}
+
+iremos pegar todos os p's dentro da div
+
+No CSS se usarmos '>' significa selecionar os elementos filhos. Sendo assim, somente os p's fora do <blockquote> são selecionados
+
+div > p {
+	
+}
+
+
+--------------------------------------------------------------
+
+Regras dos seletores
+
+tag
+#id
+.classe
+ancestral descendente
+irmão ~ irmão
+irmão + irmão seguinte
+pai > filho
+
+Exemplo:
+
+.noticia > h1 + p
+
+Seleciona todos os primeiros p's dentro das tag's h1 e essas tg's são filhos imediatos de .noticia
+Seleciona todos os títulos "h1" dentro da classe ".noticia" e os parágrafos imediatamente depois desses "h1".
+
+-------------------------------------------------------------
+
+Exemplo: para selecionar todas as li's a partir do terceiro elemento em diante da estrtura abaixo
+
+<ul>
+    <li>Não selecionar</li>
+    <li>Não selecionar</li>
+    <li>Selecionar</li>
+    <li>Selecionar</li>
+    <li>Selecionar</li>
+</ul>
+
+pode-se utilizar o modo de seleção:
+
+li ~ li ~ li {
+	
+}
+
+
+--------------------------------------------------------------
+
+Há também o seletor de atributos (igual em JavaScript). Como os seletores por id e por classes, também pode-se selecionar por qualquer outro atributo usando essa sintaxe. 
+
+Exemplo:
+
+<a href="http://www.uol.com.br"> --> Seletor --> [href="http://www.uol.com.br"]
+
+Além de poder selecionar pelo valor inteiro do atributo pode-se selecionar penas por uma parte dele ou simplesmente pela sua presença. Por exemplo, para selecionar
+todas as imagens com a extensão .jpg de uma página, basta usar o seletor:
+
+[src$=".jpg"]
+
+O cifrão representa que queremos que o atributo termine com um valor.
+
+Se quisermos selecionar todos os links que começam com http://, podemos usar o seletor:
+
+[href^="http://"]
+
+Para selecionar todos os elementos da página que tenha qualquer classe, basta usar o seletor [class]
+
+-------------------------------------------------------------
+
+Esses novos seletores juntos com os já vistos nos dá muito poder para implementar os códigos. Porém pode ser complicado trabalhar com eles, a manutenção fica difícil. Além de que se quisermos acrescentar novos elementos, pode haver quebra da estrutura ou diminuição do desempenho.
+
+A melhor alternativa é trabalharmos com as classes.
