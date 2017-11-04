@@ -67,8 +67,17 @@ Podemos modificar o lugar em que ocorre a transição de cores. Queremos aqui qu
     clear: both;
 }
 
-main a {
-    color: #851944;
+/*Adicionando pseudoclasses: 'hover' quando o mouse passa em cima do elemento e 'focus' quando o elemento ganha foco*/ 
+main a:hover,
+main a:focus,
+footer a:hover,
+footer a:focus {
+    color: #FF0000;
+}
+
+.navegacao-site a:hover,
+.navegacao-site a:focus {
+    text-shadow: 0 0 2px pink;
 }
 
 main p {

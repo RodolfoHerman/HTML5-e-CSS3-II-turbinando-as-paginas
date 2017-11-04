@@ -1,0 +1,93 @@
+Algumas pseudoclasses:
+
+:nth-child(odd) - linhas ímpares;
+:nth-child(even) - linhas pares;
+:nth-child(3) - terceira linha;
+:first-child - primeira linha;
+:last-child - última linha.
+
+Também pode-se inserir fórmulas dentro do :nth-child() como nth-child(2n) que nada mais é do que as linhas pares. Ou nth-child(2n+1), que são as ímpares.
+
+Generalizando: :nth-child(xn + c)
+
+Em que:
+
+x é a periodicidade, de quantos em quantos elementos será aplicado o estilo;
+c é o ponto de partida;
+n é a variável, que começa em 0 (zero).
+
+OBS: pode-se usar o :nth-child(y)
+
+onde y representa um número e a seleção é realizada a partir desse número.
+
+Também tem o :nth-of-type(xn + c)
+
+----------------------------------------------------
+
+Algumas observações:
+
+Não confundir o agrupamento de seletores, que é específico para o mesmo elemento e são escritos juntos
+
+table:first-child (a tabela que é o primeiro filho)
+
+Com os seletores funcionando em nível hierárquico (elementos diferentes): 
+
+tr :first-child (a tabela é pai e "first-child" é seu primeiro filho)
+
+---------------------------------------------------
+
+Exemplo para ficar atento. Visualizar o código abaixo (há a ordem dos elementos em um html qualquer):
+
+ 1 <p>
+ 2 <p>
+ 3 <h2>
+ 4 <blockquote>
+ 5 <p>
+ 6 <p>
+ 7 <h2>
+ 8 <blockquote>
+ 9 <p>
+10 <p>
+11 <h2>
+12 <blockquote>
+
+Queremos selecionar os blockquote's pares, se utilizar a seguinte pseudoclasse para seleciona-los
+
+blockquote:nth-child(even)
+
+Pode parecer que agora todos os block-quotes de número par terão o mesmo estilo. Porém a contagem da pseudoclasse vale para todo mundo, ou seja, ela pegará todos os block-quotes que estão em posições pares, nesse caso englobaria os três. Todos são filhos pares do body. 
+
+Para resolver isso, podemos pedir que conte apenas os block-quotes utilizando:
+
+blockquote:nth-of-type(even)
+
+Sendo assim a estrtura html será enxergada da seguinte maneira:
+
+  <p>
+  <p>
+  <h2>
+1 <blockquote>
+  <p>
+  <p>
+  <h2>
+2 <blockquote>
+  <p>
+  <p>
+  <h2>
+3 <blockquote>
+
+
+Com o uso das pseudoclasses, mantemos o poder que os seletores avançados possuíam, porém com elas temos uma melhor legibilidade e, por sua vez, um melhor desempenho.
+
+
+---------------------------------------------------
+
+As pseudoclasses :nth-last-child(xn + c) e :nth-last-of-type(xn + c) contando na ordem inversa. Ou seja, no HTML abaixo, o elemento com o id escolhido é o :nth-child(3) e o :nth-last-child(1).
+
+<article>
+    <p>Texto</p>
+    <p>Texto</p>
+    <p id="escolhido">Texto mais legal</p>
+</article>
+
+Observe que podemos selecionar por mais de uma classe ou pseudoclasse ao mesmo tempo! O seletor p:nth-child(3):nth-last-child(1) é perfeitamente válido, e seleciona os parágrafos que são o terceiro e último filhos de seus pais.
