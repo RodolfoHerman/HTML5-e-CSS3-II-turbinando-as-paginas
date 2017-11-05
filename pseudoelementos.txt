@@ -1,0 +1,54 @@
+Um cenário comum na formatação dos texto no HTMLé colocar a primeira letra do parágrafo em maiúscula. Uma maneira de se fazer isso é fazer o seguinte CSS:
+
+<p><span>L</span>orem ipsum...
+
+p span {
+    font-size: 3em;
+}
+
+Mas existe uma meneira mais fácil de se fazer este efeito. Existe os chamados pseudoelementos, sendo assim o CSS seria:
+
+<p>Lorem ipsum...
+
+p:first-letter {
+    font-size: 3em;
+}
+
+OU
+
+<p>Lorem ipsum...
+
+p::first-letter {
+    font-size: 3em;
+}
+
+Essa segunda maneira, com "::", surgiu com o CSS3 e é o que vale daqui para frente.
+
+-------------------------------------------------------------------
+
+Ao contrário do aso anterior, que é um elemento textual, existem elementos estéticos para serem colocados no texto. Por exemplo, colocar um efeito de aspas
+ao fundo do texto que está no elemento blockquote. Pode-se realizar esse efeito novamente com o span, mas essas aspas não fazem parte do texto, são apenas 
+decorativas. Sendo assim implementamos no CSS através
+
+blockquote:before
+
+O problema é que o navegador não traduz diretamente isso como a inserção de aspas. Para ele poderia ser qualquer elemento, incluindo imagens. Então devemos inseri-las via CSS com a propriedade "content" e estilizamos como queremos:
+
+blockquote:before {
+    content: '"';
+    font-size: 10em;
+    position: absolute;
+}
+
+O "content" é muito poderoso. Com ele podemos trabalhar com imagens, textos, marcadores, etc, além de combiná-lo com pseudoclasses como o ":hover".
+
+--------------------------------------------------------------------
+
+
+IMPORTANTE (Atributos customizados):
+
+A partir do HTML5, podemos criar nossos próprios atributos em qualquer elemento do HTML sem deixá-lo inválido; basta que esse atributo comece com data-, 
+por exemplo:
+
+<!-- a declaração abaixo é válida a partir do HTML 5 -->
+<a href="#" data-legenda="Clique em mim">Link</a>

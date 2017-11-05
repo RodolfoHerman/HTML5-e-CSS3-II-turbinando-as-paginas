@@ -156,8 +156,13 @@ em {
     height: 40px;
     display: block;
     text-indent: -99999px;
+    /*Necessário color o posicionamento em relativo para que sirva de referência para o pseudoelemento mostrar o TOOLTIP.
+    Sem o relative o texto TOOLTIP não aparece devido ao fluxo do link no HTML que o text-indent impõe. 
+    */
+    position: relative;
 }
 
+/*Técnica conhecida como image replacement */
 .github {
     background-image: url(../img/github.png);
 }
@@ -168,6 +173,51 @@ em {
 
 .linkedin {
     background-image: url(../img/linkedin.png);
+}
+
+/*Criando TOOLTIPS em CSS*/
+.icones-redes-sociais li > a:hover::after,
+.icones-redes-sociais li > a:focus::after {
+    /*Podemos buscar o conteudo dos atributos a partir da função attr*/
+    content: attr(data-tooltip);
+    /*Como o pai do elemento possui position relative, pode-se colocar o position absolute para o filho, pois o seu posicionamento é relativo ao do pai.*/
+    position: absolute;
+    /*Para que a legenda apareça embaixo do link, definimos que esse pseudoelemento deve estar a 100% do top e a 0 pixels da direita do link (Veja que a tag 'a' 
+    é a referência)*/
+    top: 100%;
+    right: 0;
+    /*Desativamos, também, o text-indent negativo do link, colocando 0 para essa propriedade também*/
+    text-indent: 0;
+    /*Como o texto dos TOOLTIPS irão aparecer num espaço bem pequeno, já que o link tem uma largura pequena definida, aumentamos a largura da legenda usando
+    a largura do link como base*/
+    width: 300%;
+    /*Para melhorar a visualização, diminui-se a fonte e coloca-se um fundo preto*/
+    font-size: 0.75em;
+    background-color: #000;
+    /*Adição de bordas*/
+    border: 1px solid #FFF;
+    border-radius: 10px;
+}
+
+
+/*Utilizando o pseudoelemento para criar um balão de diálogo (iguais aos quadrinhos). Utilizando a declaração ::before*/
+.icones-redes-sociais li > a:hover::before,
+.icones-redes-sociais li > a:focus::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: #000;
+    /*Necessário posicioná-la logo acima da legenda, um pouco afastada do canto direito dela. Para isso, 
+    utiliza-se o position: absolute e, usando o link como referência, dizemos que queremos ela grudada no 
+    canto inferior do link e no canto esquerdo também; isso vai deixá-la suficientemente afastada do canto direito da legenda.*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /*Por fim, é necessário rotacionar e transladar a caixa para que ela encaixe como uma ponta na legenda*/
+    transform: translateY(.5em) rotate(45deg);
+    /*Adição de bordas*/
+    background-color: #000;
+    border: 1px solid #FFF;
 }
 
 main {

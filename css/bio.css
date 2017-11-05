@@ -44,3 +44,41 @@
     float: right;
     margin-right: 0;
 }*/
+
+/*Primeira letra do texto (exluindo as citações) com o dobro de tamanho do texto normal, mesma cor de findo do que o painel de navegação lateral e a 
+fonte deve ser em negrito. Além disso com uma sombra preta elevemtente deslocada para direita e para baixo. 
+Para melhorar o espaçamento ao redor da letra adicionar uma pequena margem a direita e diminuira altura da linha.*/
+.container > p::first-letter {
+    font-size: 200%;
+    font-weight: bold;
+    color: #3C1D3D;
+    text-shadow: 1px 1px 1px #000;
+    margin-right: .2ch;
+    line-height: 1;
+}
+
+
+/*Colocar um quadrado vermelho antes da primeira letra do parágrafo dentro das citações. Obs: é necessário informar a propriedade 'content' se não nada é mostrado.*/
+/*.citacao-bio > p::before {
+    content: " ";
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    margin-right: 1ch;
+    display: inline-block;
+}*/
+
+.citacao-bio::before {
+    content: '“';
+    /*Elemento atrás do texto*/
+    position: absolute;
+    font-size: 10em;
+    color: #BBB;
+    /*Melhorar o posicionamento das aspas (mantendo no inicio do parágrafo)*/
+    line-height: 0.8;
+}
+
+.citacao-bio > p {
+    /*Serve para mandar o texto para frente*/
+    position: relative;
+}
