@@ -106,6 +106,7 @@ main {
     float: none;
 }
 html,body {
+    /*Evita o scroll indesejado por causa do elemento de banner*/
     overflow-x: hidden;
     height: 100%;
 }
@@ -224,8 +225,11 @@ body {
     /* altura = 3.5em */
     /* tx = .707 * h - .707 * w + w */
     /* ty = -.707 * h */
-    -webkit-transform: translate(3.7765em, -2.4745em) rotate(45deg);
-            transform: translate(3.7765em, -2.4745em) rotate(45deg);
+    /*-webkit-transform: translate(3.7765em, -2.4745em) rotate(45deg);
+            transform: translate(3.7765em, -2.4745em) rotate(45deg);*/
+    /*Em vez de usar medidas não flexivéis (igual a expressão acima) usa-se a função calc para torna-la flexivél*/
+    transform: translate(calc(.707 * (3.5em - 120%) + 100%), calc(-.707 * 3.5em)) rotate(45deg);
+
     -webkit-transform-origin: 0 0;
             transform-origin: 0 0;
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Espaçamento interno</title>
+	<style type="text/css">
+		
+		.espaco_certo {
+			/*width: 50%;*/
+    		box-sizing: border-box;
+    		width: calc(50% - 2em);
+    		padding: 1em;
+    		border: 1px solid #000;
+    		margin-bottom: 2em;
+		}
+
+		.espaco_errado {
+			box-sizing: border-box;
+    		width: 50%;
+    		padding: 1em;
+    		border: 1px solid #000;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="espaco_certo"></div>
+	<div class="espaco_errado"></div>
+</body>
+
+
+<!--
+A propriedade box-sizing nos permite controlar o modo como o navegador mede a largura de elementos e, com ela, conseguimos dizer para o navegador medir a largura que especificamos com a propriedade width considerando ou não o espaçamento interno e as bordas do elemento.
+
+Um cenário que ela nos permite resolver é criar um elemento que ocupa 50% da tela e tem espaçamento interno de 1em.
+
+Porém dessa maneira acabamos com o elemento 2em além do esperado (1em do lado esquerdo e 1em do lado direito). 
+
+Para conseguir o mesmo resultado usando a função calc(), precisamos observar que o comportamento padrão do navegador é não contar o espaçamento interno na hora de definir a largura do elemento.
+
+O elemento acaba 2em mais largo do que deveria. Para resolver isso, podemos usar a função calc() para subtrair esses 2em da largura definida. Dessa forma, a largura final será exatamente 50%.
+
+-->
+
+
+
+
+</html>

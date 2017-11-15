@@ -221,7 +221,8 @@ em {
 }
 
 main {
-    width: 80%;
+    /*Pega os 100% de espaço e retira 270px para o menu lateral direito ocupe sempre os 270px disponíveis para ele*/
+    width: calc(100% - 0.9 * 300px);
     float: left;
     padding-bottom: 4em;
 }
@@ -234,7 +235,8 @@ main {
 }
 
 .navegacao-site {
-    width: 15%;
+    /*Matém sempre os 270px disponíveis para ele. OBS: 270px definido para ocupar um espçao menor do que a foto que possui 300px*/
+    width: calc(0.9 * 300px);
     float: right;
     position: relative;
     top: 300px;
@@ -245,7 +247,7 @@ main {
     top: 0;
     right: 0;
     height: 300px;
-    width: 320px;
+    width: 300px;
 }
 
 

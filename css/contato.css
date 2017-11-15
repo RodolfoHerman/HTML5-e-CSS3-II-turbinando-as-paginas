@@ -85,3 +85,69 @@ Usamos essa pseudoclasse para selecionar novamente o campo de texto ao lado e mu
 input[value="outro"]:checked ~ input {
 	display: inline;
 }
+
+
+/*Realizar a inserção de um ícone nos inputs do formulário através de um pseudoelemento na tag label.*/
+/*Como a label não possui posição definida e o pseudoelemento necessita de pegar a posição da label como referência, é necessário setar essa posição para relativa*/
+label[for="nome-contato"] {
+    position: relative;
+}
+
+label[for="nome-contato"]::after {
+    /*Pega-se o pseudoelemento, posiciona-o relativo à label 100% para baixo dela, deixando-o em cima do input (também indica-se seu tamanho).*/
+    /*Coloca o pseudoelemento com 100% de distância na parte superior ao elemento pai. Ou seja, o pseudoelemento ficará na parte inferior do elemento pai*/ 
+    top: 100%;
+    /*Garante que o pseudoelemento ficará sempre na parte da esquerda do seu pai*/
+    left: 0;
+    /*Necessário colocar para mostrar algo na tela*/
+    content: "";
+    /*Manter a posição referente ao pai*/
+    position: absolute;
+    /*Tamanho do pseudoelemento referente ao tamanho do input*/
+    width: 2em;
+    height: 2em;
+    /*Referente à imagem de fundo*/
+    background-image: url("../img/usuario.png");
+    background-position: center;
+    background-color: #666;
+    background-repeat: no-repeat;
+    /*Tamanho da imagem*/
+    background-size: 50% 50%;
+}
+
+/*Como o pseudoelemento necessita de espaço, é necessário arredar o input para a direita para não ficar em cima do pseudoelemento*/
+#nome-contato {
+    /*Redução do tamanho a partir do pseudoelemento para caber no html*/
+    width: calc(100% - 2em);
+    /*Necessário para controlar o posicionamento do elemento dentro da página*/
+    position: relative;
+    /*Com a propriedade relativa setada, pode-se realizar os deslocamentos necessários no elemento*/
+    left: 2em;
+}
+
+
+label[for="email-contato"] {
+    position: relative;
+}
+
+
+label[for="email-contato"]::after {
+    top: 100%;
+    left: 0;
+    content: "";
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background-color: #F66;
+    background-image: url("../img/email.png");
+    background-position: center;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+
+#email-contato {
+    position: relative;
+    width: calc(100% - 2em);
+    left: 2em;
+}
