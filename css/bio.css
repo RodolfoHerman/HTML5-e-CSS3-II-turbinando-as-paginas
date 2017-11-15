@@ -86,3 +86,50 @@ Para melhorar o espaçamento ao redor da letra adicionar uma pequena margem a di
     /*Serve para mandar o texto para frente*/
     position: relative;
 }
+
+
+/*Estilizando a tabela */
+/*Celulas espaçadas em .25em a tabela deve estar afastada 1em acima e abaixodo resto do conteúdo*/
+.tabela-habilidades {
+    margin: 1em 0em;
+    /*Para utilizar a propriedade spacing é necessário separar as bordas da tabela com a propriedade 'border-collapse: separete;'. Ou seja,
+    o separete coloca bordas individuais em cada celula e assim pode-se aplicar o espaço entre as bordas*/
+    border-collapse: separate;
+    border-spacing: .25em;
+}
+
+.tabela-habilidades td,
+.tabela-habilidades th {
+    padding: 1em;
+}
+
+/*Nome das habilidades com fundo #851944 e texto branco negrito*/
+.tabela-habilidades tbody tr :first-child  {
+    background-color: #851944;
+    color: #FFF;
+    font-weight: bold;
+}
+
+/*Cabeçalho com cor #3C1D3D e o texto branco negrito*/
+.tabela-habilidades thead th {
+    background-color: #3C1D3D;
+    color: #FFF;
+    font-weight: bold;
+}
+
+/*Restante do conteudo da tabela com fundo #EEE e cor do texto igual da página*/
+.tabela-habilidades tbody td ~ td  {
+    background-color: #EEE;
+    color: #000;/*#F2FFFC;*/
+}
+
+/*Centralizar o texto na tabela que possui rowspan*/
+.tabela-habilidades td[rowspan] {
+    /*Como utilizamos o rowspan a propriedade vertical-align consegue colocar o texto centralizado baseado no numero de rowspan*/
+    vertical-align: middle;
+}
+
+/*Centralizar o texto quando possui colspan*/
+.tabela-habilidades td[colspan] {
+    text-align: center;
+}
