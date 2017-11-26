@@ -18,6 +18,10 @@ body {
     background-color: #F2FFFC;
     font-size: 120%;
     line-height: 1.5;
+    /*Torna o body em um flexbox*/
+    display: flex;
+    /*Suporte à quebra de linha para que o cabelçalho fique numa linha diferente dos elementos body e aside */
+    flex-wrap: wrap;
 }
 
 h1,
@@ -222,27 +226,37 @@ em {
 
 main {
     /*Pega os 100% de espaço e retira 270px para o menu lateral direito ocupe sempre os 270px disponíveis para ele*/
-    width: calc(100% - 0.9 * 300px);
-    float: left;
-    padding-bottom: 4em;
+    /*Agora o body é um flexbox e não precisa do float, só é necessário garantir que o elemento ocupe todo o espaçoque a barra lateral não ocupa usando o flex-grow*/
+    /*width: calc(100% - 0.9 * 300px);*/
+    /*Agora o body é um flexbox e não precisa do float*/
+    /*float: left;*/
+    /*Garantir que o elemento main ocupe todo o espaço que a barra lateral não ocupa*/
+    flex-grow: 1;
+    padding-bottom: 5.3em;
 }
 
 .minha-foto,
 .navegacao-site {
     border-left: .5em solid black;
-    border-bottom: .5em solid black;
+    /*border-bottom: .5em solid black;*/
     box-sizing: border-box;
 }
 
 .navegacao-site {
     /*Matém sempre os 270px disponíveis para ele. OBS: 270px definido para ocupar um espçao menor do que a foto que possui 300px*/
     width: calc(0.9 * 300px);
-    float: right;
-    position: relative;
-    top: 300px;
+    /*Agora o body é um flexbox e não precisa do float*/
+    /*float: right;*/
+    /*para evitar que sobre espaço no final da página, troque o position: relative e o top: 300px da barra lateral 
+    por um padding-top: 300px (adicione 1em a esse valor para conseguir exatamente o mesmo resultado).*/
+    padding-top: calc(300px + 1em);
+    /*Com o cálculo do padding-top não é mais necessário os elementos abaixo*/
+    /*position: relative;
+    top: 300px;*/
 }
 
 .minha-foto {
+    border-bottom: .5em solid black;
     position: absolute;
     top: 0;
     right: 0;

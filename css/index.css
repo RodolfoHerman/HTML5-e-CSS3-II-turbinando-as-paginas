@@ -97,13 +97,37 @@
     color: #FFF;
 }
 .trabalhos ul {
-    overflow: hidden;
-    border: .5em solid black;
+    /*Faz com que o elemento ul se torne um flexbox e calcula o tamanho dos filhos*/
+    display: flex;
+    /*Com o display:flex não é mais necessário tirar a barra de rolagem do elemento*/;
+    /*overflow: hidden;*/
+    /*Por fim, para conseguir as bordas ao redor da imagem central, podemos tirar a borda e o overflow da lista e colocar apenas a borda em cada um de seus itens*/
+    /*border: .5em solid black;*/
 }
 .trabalhos li {
-    float: left;
-    width: 33.333%;
+    /*Como o elemento pai é um flexbox, determinamos no filho que todos possuem o mesmo tamanho*/
+    flex: 1;
+    /*Como a propriedade display:flex do pai já cálcula o tamanho dos filhos de forma automática podemos tirar o float e o width*/
+    /*float: left;
+    width: 33.333%;*/
+    /*Por fim, para conseguir as bordas ao redor da imagem central, podemos tirar a borda e o overflow da lista e colocar apenas a borda em cada um de seus itens*/
+    border: .5em solid #000;
 }
+
+/*Para conseguir mudar a ordem dos elementos, precisamos definir a ordem nos três*/
+.trabalhos li:nth-child(1) {
+    order: 2;
+    transform: scale(1.1);
+}
+
+.trabalhos li:nth-child(2) {
+    order: 1;
+}
+
+.trabalhos li:nth-child(3) {
+    order: 3;
+}
+
 .trabalhos img {
     width: 100%;
     display: block;
@@ -152,6 +176,8 @@ body {
             perspective: 6px;
     -webkit-perspective-origin: 50% 160px;
             perspective-origin: 50% 160px;
+    /*Para evitar que o layout quebre devido ao flexbox do body no arquivo site.css. Então sobrescreve a propriedade do elemento*/
+    display: block;
 }
 .palavras-home {
     -webkit-transform-style: preserve-3d;

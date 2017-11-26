@@ -2,15 +2,32 @@
 Para deixar as caixinhas lado a lado, formando linhas, e conseguir controlar o padding e a margem entre elas, usamos a propriedade display com o valor inline-block.
 */
 
+.portfolio {
+    /*Torna o lemento um flexbox*/
+    display: flex;
+    /*Suporte de quebra de linha (o display:flex mantém todos elementos na horizontal por padrão)*/
+    flex-wrap: wrap;
+}
+
 .portfolio li {
-    display: inline-block;
+    /*Não é mais necessário devido ao pai do elemento virar um flexbox
+    display: inline-block;*/
     border: .5em solid black;
     background-color: #FAFFFC;
-    width: 45%;
+    /*width: 45%;*/
+    /*Realização do cálculo do tamanho do li a partir das bordas*/ 
     box-sizing: border-box;
+    /*Faz com que os elementos cresçam, diminuam de forma proporcional com tamanho de 35% (Parâmetros: crescer diminuir máximo)*/
+    flex: 1 1 45%;
+
     padding: 1em;
     margin-right: 1em;
     margin-bottom: 1em;
+}
+
+.portfolio li:first-child {
+    /*Faz um destaque na primeira notíci, fazendo com que ocupe todo o espaço do containera*/
+    flex-basis: 100%;
 }
 
 .portfolio img {

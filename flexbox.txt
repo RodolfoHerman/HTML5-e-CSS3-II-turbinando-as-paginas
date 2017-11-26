@@ -1,0 +1,53 @@
+Os elementos:
+
+position
+display
+float
+
+até agora servem para controlar os elementos filhos em relação ao pai. Nenhuma delas nos permite controlá-los a partir do pai. Agora com a especificação Flexbox, ela nos permite termos esse controle a partir de um elemento pai.
+
+Exemplo:
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+"display: flex": faz com que o container se comporte como um flexbox, ou seja, ele controlará o layout de seus filhos. Por padrão, os filhos terão a mesma altura e alinhados à esquerda;
+"align-items": center": centraliza verticalmente os elementos filhos dentro do pai; (A altura é dada de acordo com cada filho e não mais mantida igual para todos)
+"justify-content: space-between": distribui entre os elementos o espaço que está sobrando.
+
+ Agora, para manter o conteúdo das caixas justificado verticalmente basta repetir a ideia para elas só que utilizando a propriedade "flex-direction":
+
+ .box {
+    display: flex;
+    flex-direction:column;
+}
+
+Porém, as caixas com mais texto ficarão com largura maior, então devemos defini-la usando a noção de proporção. Como as queremos do mesmo tamanho, essa proporção é igual a 1:
+
+.box {
+    display: flex;
+    flex-direction:column;
+    flex: 1;
+}
+
+
+Alguns recursos do flexbox:
+
+display: flex: ativa o flexbox no elemento;
+align-items: distribui verticalmente os elementos dentro de um container flex;
+justify-content: distribuir os elementos espaçadamente dentro do container;
+flex-direction: permite inverter o align-items;
+order: muda a ordem dos elementos;
+flex: indica a proporção do tamanho dos elementos. Ele é um atalho para mais três propriedades:
+flex-grow: determina quanto o elemento deve crescer;
+flex-shrink: determina quanto o elemento deve diminuir;
+flex-basis: determina o tamanho mínimo do elemento.
+
+A propriedade 'flex' aceita até 3 valores:
+
+flex-grow    --> aumenta o tamanho do elemento
+flex-shrink  --> diminui o tamanho do elemento
+flex-basis   --> que determina o tamanho mínimo para o lemento ser renderizado
