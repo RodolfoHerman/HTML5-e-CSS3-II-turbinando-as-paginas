@@ -28,7 +28,31 @@
     -webkit-transform: rotate(-5deg) skew(-10deg);
             transform: rotate(-5deg) skew(-10deg);
     display: inline-block;
+    /*Para a animação funcionar precisamos colocar o deslocamento (top -5px e 5px) a partir da posição original do elemento. Por isso a position é relativa*/
+    position: relative;
+    /*Para aplicar a animação com duração de 1 segundo e que repita de forma infinita*/
+    animation: flutua 1s infinite;
+    /*Evita que o elemento pule subtamente para cima no final da animação. Aplicamos o alternate para que o navegador alterne o sentido da animação*/
+    animation-direction: alternate;
+    /*Para que a animação seja suavizada no início e no fim, dando uma senação de flutuação do elemento*/
+    animation-timing-function: ease-in-out;
 }
+
+/*Cria a animação de flutuação do elemento*/
+@keyframes flutua {
+    from {
+        top: -5px;
+    } to {
+        top: 5px;
+    }
+}
+
+/*Pausar a animação quando o mouse está em cima*/
+.saudacao em:hover {
+    animation-play-state: paused;
+}
+
+
 .botao-index {
     font-size: 1.25em;
     background-color: #851944;
@@ -39,9 +63,22 @@
     margin: 2em auto;
     display: block;
     text-align: center;
-    /** Insere uma cor preta externa ao botão e uma cor interna ao botão */
+    text-decoration: none;
+    /** Insere uma cor preta externa ao botão e uma cor branca interna ao botão */
     box-shadow: 0 0 1em #000, inset 0 0 1em #FFF;
+    /*Aplicar um delay de .5s para todos os efeitos aplicados aos botões, como no HOVER e FOCUS abaixo*/
+    transition: .5s;
 }
+
+
+.botao-index:hover,
+.botao-index:focus {
+    background-color: #C54974;
+    color: #FFF;
+    box-shadow: 0 0 1em #FA9;
+}
+
+
 .secao-inicio {
     padding: 2em;
 }
@@ -131,7 +168,22 @@ body {
     font-size: 400%;
     color: #D5447E;
     position: absolute;
+    /*Aplicando a animação criada para as palavras*/
+    animation: aparece 2s;
 }
+
+/*Animação das palavras*/
+@keyframes aparece {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+    } /*100% {
+        opacity: 1;
+        transform: scale(0.25);
+    }*/
+}
+
+
 .eficiencia {
     top: 50%;
     left: 60%;
@@ -229,7 +281,7 @@ body {
             transform: translate(3.7765em, -2.4745em) rotate(45deg);*/
     /*Em vez de usar medidas não flexivéis (igual a expressão acima) usa-se a função calc para torna-la flexivél*/
     transform: translate(calc(.707 * (3.5em - 120%) + 100%), calc(-.707 * 3.5em)) rotate(45deg);
-
+    /*Calcula a rotação a partir dos valores 0 e 0 do eixo do elemento*/
     -webkit-transform-origin: 0 0;
             transform-origin: 0 0;
 
@@ -245,6 +297,15 @@ body {
 
     font-size: 1.2em;
     font-family: "Open Sans Condensed", sans-serif;
+
+    /*Palicando a animação de aparecer em um tempo de meio segundo*/
+    animation: aparece 0.5s;
+    /*Aplica a animação depois de 2 segundos que a página já carregou*/
+    animation-delay: 2s;
+    /*Essa propriedade nos permite aplicar o efeito da animação (opacity 0 e scale 0.1) antes de ela acontecer (backwards). Também existe
+    o parâmetro forwards e o both.*/
+    animation-fill-mode: backwards;
+    
 }
 .blog .info-post {
     position: absolute;
@@ -263,8 +324,8 @@ body {
     display: block;
 }
 
-.blog a:hover,
-.blog a:focus {
+.blog li a:hover,
+.blog li a:focus {
     background-color: #F2FFFC;
     color: #F26;
 }

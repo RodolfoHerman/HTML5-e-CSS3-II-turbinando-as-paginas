@@ -5,16 +5,49 @@
     margin: 1em 2em;
     width: 30ch;
     box-sizing: border-box;
+    /*Necessáio aplicar o position relative para que aconteça a animação abaixo. Isso por que estamos alterando a posição 'top' no 'quica' e essa posição é relativa*/
+    position: relative;
+    /*Aplicando o transition significa que a transição de antes para depois de passar o mouse durará 1s. Para ter maior controle, pode-se colocar tempos diferentes
+    para cada propriedade, por exemplo: transform acontecerá em 1 seg e o box-shaow em 5segs. Outra propriedade que pode ser controlada é a velocidade 
+    conforme vão acontecendo, pode-se aplicar uma suavização no início e no fim da transição utilizando: linear (velocidade linear em todo o processo), 
+    ease-is (apenas no início), ease-out (apenas no final) e ease-in-out (no início e no fim)*/
+    transition: transform 1s linear, box-shadow 2s ease-in;
+    /*Pode-se controlar também o início das transições, podendo começar com um atraso. E podemos especificar quais a propriesdade que vão possuir o atraso.*/
+    transition-delay: 1s, 0s;
+    /*Aplicando a animação 'quica' que foi criada logo abaixo, e informando que deve acontecer de forma infinita*/
+    animation: quica 1s infinite;
+    /*Com a propriedade alternate o elemento irá de top 0 para top 1 e de top 1 para top 0, dando a sensação de que ele está quicando. Sem aplicar essa propriedade
+    o elemento repetirá sempre de top 0 a top 1 e pula pra top 0, dando um efeito mais brusco*/
+    animation-direction: alternate;
+    /*Aplicando essa outra propriedade, o elemento terá uma suavização em sua animação na parte inicial (0%), dando um efeito que realmente o elemento está quicando*/
+    animation-timing-function: ease-in;
 }
+
+/*Podemos criar animações que não dependem da iteração do usuário com o elemento. Para isso podemos fazer definiçoes com o CSS utilizando o '@'.
+Podemos utilizar a propriedade 'keyframes' do CSS que permite especificar o que acontece a cada frame de animação. Neste caso especificaremos
+o que acontece no primeiro frame 0% e no último 100%.*/
+@keyframes quica {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 1em;
+    }
+}
+
 
 .citacao-bio:hover,
 .citacao-bio:focus {
     cursor: pointer;
-    /*box-shadow: 0px 0px 0px 999px rgba(0, 0, 0, 0.75);*/
+    box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.75);
+    /*Aplicando essa propriedade, ela pausa o anamação 'quica'. Fazemos isso para evitar, quando desejado, que 2 animações ocorra ao mesmo tempo */
+    animation-play-state: paused;
+    /*Quando tiramos o mouse do elemento o efeito acontece ao contrário ao definido na classe .citacao-bio*/
+    transition-delay: 0s, 1s;
 }
 
 .citacao-bio:active {
-    box-shadow: 0px 0px 0px 999px rgba(0, 0, 0, 0.75);   
+    box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.75);   
 }
 
 
